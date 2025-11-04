@@ -1,0 +1,754 @@
+{
+  "BIOMES": {
+    "forest": {
+      "name": "غابة عميقة",
+      "block_weights": { 
+        "herb_common": 20, 
+        "dirt": 15, 
+        "mystic_moss": 10, 
+        "ancient_wood": 8,
+        "wood": 12,
+        "stone": 10,
+        "herb_medic": 5, 
+        "water": 12 
+      },
+      "creature_spawns": { 
+        "rabbit": 0.8,
+        "deer": 0.6,
+        "sprite": 0.4,
+        "wolf": 0.3,
+        "spirit_beast": 0.1
+      },
+      "effects": { 
+        "regen_modifier": 1.2,
+        "reproduction_boost": 1.3,
+        "tick_damage_prob": 0.05,
+        "tick_damage_amount": 0.3
+      }
+    },
+    "swamp": {
+      "name": "مستنقع غامض",
+      "block_weights": { 
+        "water": 20, 
+        "dirt": 12, 
+        "mystic_moss": 15,
+        "wood": 8,
+        "stone": 6,
+        "spirit_dust": 2, 
+        "herb_medic": 4, 
+        "ghoul_fungus": 5 
+      },
+      "creature_spawns": { 
+        "ghoul": 0.7,
+        "sprite": 0.5,
+        "spirit_beast": 0.2,
+        "rock_turtle": 0.1
+      },
+      "effects": { 
+        "regen_modifier": 0.9,
+        "tick_damage_prob": 0.08,
+        "tick_damage_amount": 0.4
+      }
+    },
+    "volcanic": {
+      "name": "بركاني",
+      "block_weights": { 
+        "iron": 15, 
+        "gold": 4, 
+        "qi_crystal": 5, 
+        "obsidian": 10, 
+        "stone": 20,
+        "spirit_dust": 3,
+        "sunstone": 1
+      },
+      "creature_spawns": { 
+        "wolf": 0.2,
+        "rock_turtle": 0.6,
+        "phoenix": 0.15,
+        "shadow_stalker": 0.1
+      },
+      "effects": { 
+        "tick_damage_prob": 0.12, 
+        "tick_damage_amount": 0.8, 
+        "regen_modifier": 0.8 
+      }
+    },
+    "icy_tundra": {
+      "name": "البراري الجليدية",
+      "block_weights": { 
+        "ice_crystal": 20, 
+        "iron": 5, 
+        "ancient_wood": 10, 
+        "obsidian": 3,
+        "stone": 15,
+        "mystic_moss": 8
+      },
+      "creature_spawns": { 
+        "shadow_stalker": 0.3,
+        "rock_turtle": 0.4,
+        "rabbit": 0.5,
+        "deer": 0.2
+      },
+      "effects": { 
+        "regen_modifier": 0.7,
+        "tick_damage_prob": 0.1,
+        "tick_damage_amount": 0.5
+      }
+    },
+    "celestial": {
+      "name": "السماوي",
+      "block_weights": { 
+        "qi_crystal": 10, 
+        "spirit_dust": 15, 
+        "gold": 8, 
+        "ancient_wood": 5,
+        "wood": 8,
+        "stone": 12,
+        "sunstone": 3
+      },
+      "creature_spawns": { 
+        "sprite": 0.9,
+        "phoenix": 0.4,
+        "spirit_beast": 0.3,
+        "celestial_guardian": 0.1
+      },
+      "effects": { 
+        "regen_modifier": 1.5,
+        "reproduction_boost": 1.8,
+        "tick_damage_prob": 0.02,
+        "tick_damage_amount": 0.1
+      }
+    }
+  },
+  
+  "BLOCKS": {
+    "herb_common": { 
+      "name": "عشبة عادية", 
+      "category": "plant", 
+      "energy": 5, 
+      "grow_rate": 0.8, 
+      "rarity": 0.9 
+    },
+    "dirt": { 
+      "name": "تراب", 
+      "category": "ground", 
+      "energy": 1, 
+      "grow_rate": 2.0, 
+      "rarity": 1.0 
+    },
+    "mystic_moss": { 
+      "name": "طحلب صوفي", 
+      "category": "fungus", 
+      "energy": 8, 
+      "grow_rate": 0.5, 
+      "rarity": 0.7 
+    },
+    "ancient_wood": { 
+      "name": "خشب قديم", 
+      "category": "plant", 
+      "energy": 10, 
+      "grow_rate": 0.3, 
+      "rarity": 0.5 
+    },
+    "wood": { 
+      "name": "خشب", 
+      "category": "plant", 
+      "energy": 8, 
+      "grow_rate": 0.4, 
+      "rarity": 0.6 
+    },
+    "stone": { 
+      "name": "حجر", 
+      "category": "mineral", 
+      "energy": 12, 
+      "rarity": 0.5 
+    },
+    "herb_medic": { 
+      "name": "عشبة علاجية", 
+      "category": "plant", 
+      "energy": 12, 
+      "grow_rate": 0.2, 
+      "rarity": 0.3 
+    },
+    "water": { 
+      "name": "ماء", 
+      "category": "liquid", 
+      "energy": 3, 
+      "rarity": 0.8 
+    },
+    "spirit_dust": { 
+      "name": "غبار الأرواح", 
+      "category": "etherial", 
+      "energy": 15, 
+      "grow_rate": 0.05, 
+      "rarity": 0.2 
+    },
+    "ghoul_fungus": { 
+      "name": "فطر الغيلان", 
+      "category": "fungus", 
+      "energy": 18, 
+      "grow_rate": 0.08, 
+      "rarity": 0.15 
+    },
+    "iron": { 
+      "name": "حديد", 
+      "category": "mineral", 
+      "energy": 25, 
+      "rarity": 0.4 
+    },
+    "gold": { 
+      "name": "ذهب", 
+      "category": "mineral", 
+      "energy": 50, 
+      "rarity": 0.08 
+    },
+    "qi_crystal": { 
+      "name": "بلورة تشي", 
+      "category": "crystal", 
+      "energy": 75, 
+      "rarity": 0.05 
+    },
+    "obsidian": { 
+      "name": "زجاج بركاني", 
+      "category": "mineral", 
+      "energy": 20, 
+      "rarity": 0.6 
+    },
+    "ice_crystal": { 
+      "name": "بلورة جليد", 
+      "category": "crystal", 
+      "energy": 22, 
+      "rarity": 0.2 
+    },
+    "sunstone": { 
+      "name": "حجر الشمس", 
+      "category": "mineral", 
+      "energy": 40, 
+      "rarity": 0.1 
+    },
+    "food": {
+      "name": "غذاء",
+      "category": "consumable",
+      "energy": 15,
+      "rarity": 0.7
+    },
+    "seeds": {
+      "name": "بذور",
+      "category": "plant",
+      "energy": 2,
+      "grow_rate": 0.3,
+      "rarity": 0.6
+    },
+    "seeds_medic": {
+      "name": "بذور علاجية",
+      "category": "plant",
+      "energy": 3,
+      "grow_rate": 0.2,
+      "rarity": 0.4
+    },
+    "spore_dust": {
+      "name": "غبار الأبواغ",
+      "category": "fungus",
+      "energy": 5,
+      "rarity": 0.5
+    },
+    "compost": {
+      "name": "سماد",
+      "category": "ground",
+      "energy": 8,
+      "rarity": 0.6
+    },
+    "bones": {
+      "name": "عظام",
+      "category": "organic",
+      "energy": 3,
+      "rarity": 0.4
+    },
+    "essence": {
+      "name": "جوهر",
+      "category": "etherial",
+      "energy": 20,
+      "rarity": 0.3
+    },
+    "cloud_essence": {
+      "name": "جوهر سحابي",
+      "category": "etherial", 
+      "energy": 25,
+      "rarity": 0.2
+    },
+    "lava": {
+      "name": "حمم بركانية",
+      "category": "liquid",
+      "energy": 35,
+      "rarity": 0.3
+    }
+  },
+  
+  "CREATURES": {
+    "rabbit": { 
+      "name": "أرنب", 
+      "diet": "herbivore", 
+      "energy_max": 15, 
+      "repro": 0.08, 
+      "attack": 2, 
+      "lifespan": 80, 
+      "rarity": 0.9 
+    },
+    "deer": { 
+      "name": "غزال", 
+      "diet": "herbivore", 
+      "energy_max": 30, 
+      "repro": 0.05, 
+      "attack": 5, 
+      "lifespan": 150, 
+      "rarity": 0.7 
+    },
+    "wolf": { 
+      "name": "ذئب", 
+      "diet": "carnivore", 
+      "energy_max": 40, 
+      "repro": 0.03, 
+      "attack": 15, 
+      "lifespan": 120, 
+      "rarity": 0.5 
+    },
+    "sprite": { 
+      "name": "روح", 
+      "diet": "mystic", 
+      "energy_max": 60, 
+      "repro": 0.02, 
+      "attack": 1, 
+      "lifespan": 400, 
+      "rarity": 0.3, 
+      "qi_production": 0.3 
+    },
+    "spirit_beast": { 
+      "name": "وحش الأرواح", 
+      "diet": "carnivore", 
+      "energy_max": 100, 
+      "repro": 0.008, 
+      "attack": 30, 
+      "lifespan": 800, 
+      "rarity": 0.15, 
+      "qi_production": 0.5 
+    },
+    "ghoul": { 
+      "name": "غول", 
+      "diet": "detritivore", 
+      "energy_max": 45, 
+      "repro": 0.04, 
+      "attack": 10, 
+      "lifespan": 180, 
+      "rarity": 0.4 
+    },
+    "phoenix": { 
+      "name": "طائر الفينيق", 
+      "diet": "mystic", 
+      "energy_max": 500, 
+      "repro": 0.002, 
+      "attack": 80, 
+      "lifespan": 10000, 
+      "rarity": 0.03, 
+      "qi_production": 1.0 
+    },
+    "rock_turtle": { 
+      "name": "سلحفاة صخرية", 
+      "diet": "detritivore", 
+      "energy_max": 200, 
+      "repro": 0.01, 
+      "attack": 15, 
+      "lifespan": 2500, 
+      "rarity": 0.1 
+    },
+    "shadow_stalker": { 
+      "name": "متربص الظل", 
+      "diet": "carnivore", 
+      "energy_max": 120, 
+      "repro": 0.015, 
+      "attack": 22, 
+      "lifespan": 1200, 
+      "rarity": 0.2 
+    },
+    "celestial_guardian": { 
+      "name": "الحارس السماوي", 
+      "diet": "mystic", 
+      "energy_max": 800, 
+      "repro": 0.001, 
+      "attack": 100, 
+      "lifespan": 5000, 
+      "rarity": 0.02, 
+      "qi_production": 2.0 
+    }
+  },
+  
+  "PREDATION": {
+    "wolf": ["rabbit","deer","sprite"],
+    "ghoul": ["sprite","rabbit"],
+    "spirit_beast": ["wolf","deer","rabbit","ghoul","sprite"],
+    "shadow_stalker": ["deer", "rabbit", "sprite", "wolf"],
+    "celestial_guardian": ["spirit_beast", "phoenix", "shadow_stalker"]
+  },
+  
+  "DIET_TO_RESOURCES": {
+    "herbivore": ["herb_common", "herb_medic", "mystic_moss", "dirt"],
+    "carnivore": [],
+    "detritivore": ["mystic_moss", "spirit_dust", "ice_crystal", "ghoul_fungus"],
+    "mystic": ["qi_crystal", "spirit_dust", "sunstone", "ancient_wood"]
+  },
+  
+  "ELEMENT_RELATIONSHIPS": {
+    "herb_common": {
+      "requires": ["dirt", "water"],
+      "produces": ["seeds"],
+      "decays_to": "compost",
+      "growth_rate": 0.8
+    },
+    "herb_medic": {
+      "requires": ["dirt", "water", "spirit_dust"],
+      "produces": ["seeds_medic"],
+      "decays_to": "compost",
+      "growth_rate": 0.5
+    },
+    "dirt": {
+      "enriched_by": ["compost", "water"],
+      "degraded_by": ["lava"],
+      "can_grow": ["herb_common", "mystic_moss"]
+    },
+    "water": {
+      "required_for": ["herb_common", "herb_medic", "mystic_moss"],
+      "evaporates_to": "cloud_essence",
+      "freezes_to": "ice_crystal"
+    },
+    "mystic_moss": {
+      "requires": ["dirt", "water", "spirit_dust"],
+      "produces": ["spore_dust"],
+      "decays_to": "compost",
+      "growth_rate": 0.6
+    },
+    "corpse": {
+      "decays_to": "dirt",
+      "produces": ["bones", "essence"],
+      "decay_rate": 0.1
+    },
+    "food": {
+      "requires": ["herb_common", "water"],
+      "consumed_by": ["human"],
+      "energy_value": 15
+    }
+  },
+  
+  "BUILDINGS": {
+    "farm": {
+      "name": "مزرعة",
+      "cost": {"wood": 20, "stone": 10},
+      "effects": {"food_production": 2, "plant_growth_boost": 1.2}
+    },
+    "house": {
+      "name": "منزل",
+      "cost": {"wood": 30, "stone": 15},
+      "effects": {"population_capacity": 5, "comfort": 1}
+    },
+    "workshop": {
+      "name": "ورشة عمل",
+      "cost": {"wood": 40, "iron": 20},
+      "effects": {"crafting_speed": 1.5, "crafting_quality": 1.2}
+    },
+    "spirit_garden": {
+      "name": "حديقة الأرواح",
+      "cost": {"ancient_wood": 15, "spirit_dust": 20, "qi_crystal": 3},
+      "effects": {"qi_generation": 0.3, "spirit_attraction": 1.5}
+    },
+    "storage_shed": {
+      "name": "مستودع تخزين",
+      "cost": {"wood": 25, "stone": 15},
+      "effects": {"storage_capacity": 500, "item_preservation": 1.3}
+    },
+    "market": {
+      "name": "سوق",
+      "cost": {"wood": 50, "stone": 30, "gold": 5},
+      "effects": {"trading_efficiency": 1.5, "price_advantage": 1.2}
+    },
+    "barracks": {
+      "name": "ثكنات",
+      "cost": {"wood": 40, "stone": 40, "iron": 20},
+      "effects": {"defense_bonus": 2.0, "training_speed": 1.3}
+    }
+  },
+  
+  "HUMANS": {
+    "villager": {
+      "name": "قروي",
+      "skills": ["farming", "building", "gathering"],
+      "productivity": 0.5,
+      "energy_consumption": 2
+    },
+    "craftsman": {
+      "name": "حرفي",
+      "skills": ["crafting", "building", "repairing"],
+      "productivity": 0.7,
+      "energy_consumption": 3
+    },
+    "warrior": {
+      "name": "محارب",
+      "skills": ["combat", "hunting", "protection"],
+      "productivity": 0.6,
+      "energy_consumption": 4
+    },
+    "scholar": {
+      "name": "عالم",
+      "skills": ["research", "teaching", "healing"],
+      "productivity": 0.8,
+      "energy_consumption": 2
+    }
+  },
+
+  "PROFESSIONS": {
+    "farmer": {
+      "name": "مزارع",
+      "required_skills": {"cultivation": 2},
+      "production": {"food": 5, "herb_common": 2},
+      "bonuses": {"food_production": 1.2}
+    },
+    "woodcutter": {
+      "name": "حطاب",
+      "required_skills": {"gathering": 2},
+      "production": {"wood": 8, "ancient_wood": 1},
+      "bonuses": {"wood_production": 1.3}
+    },
+    "miner": {
+      "name": "معدني",
+      "required_skills": {"gathering": 3},
+      "production": {"stone": 10, "iron": 2},
+      "bonuses": {"mining_speed": 1.4}
+    },
+    "craftsman": {
+      "name": "حرفي",
+      "required_skills": {"crafting": 4, "building": 3},
+      "production": {"qi_potion_small": 1},
+      "bonuses": {"crafting_quality": 1.5}
+    },
+    "trader": {
+      "name": "تاجر",
+      "required_skills": {"trading": 3},
+      "production": {"spirit_coins": 2},
+      "bonuses": {"price_advantage": 1.4}
+    }
+  },
+
+  "SKILLS": {
+    "ingestion_efficiency": {
+      "name": "كفاءة الابتلاع",
+      "description": "زيادة كفاءة وسعة الابتلاع"
+    },
+    "qi_mastery": {
+      "name": "إتقان الطاقة",
+      "description": "تحسين استخدام وتوليد طاقة Qi"
+    },
+    "cultivation": {
+      "name": "الزراعة",
+      "description": "تحسين النمو والإنتاج الزراعي"
+    },
+    "combat": {
+      "name": "القتال",
+      "description": "تحسين مهارات القتال والهجوم"
+    },
+    "building": {
+      "name": "البناء",
+      "description": "تحسين كفاءة وجودة البناء"
+    },
+    "trading": {
+      "name": "التجارة",
+      "description": "تحسين مهارات التجارة والتفاوض"
+    },
+    "gathering": {
+      "name": "الجمع",
+      "description": "تحسين كفاءة جمع الموارد"
+    },
+    "crafting": {
+      "name": "الصنعة",
+      "description": "تحسين مهارات الصناعة والحرف"
+    }
+  },
+
+  "SKILL_EFFECTS": {
+    "ingestion_efficiency": {
+      "effects": {
+        "1": {"capacity_bonus": 0, "efficiency": 1.0},
+        "5": {"capacity_bonus": 2, "efficiency": 1.2},
+        "10": {"capacity_bonus": 5, "efficiency": 1.5}
+      }
+    },
+    "qi_mastery": {
+      "effects": {
+        "1": {"qi_cost_reduction": 0.0, "generation_boost": 1.0},
+        "5": {"qi_cost_reduction": 0.2, "generation_boost": 1.3},
+        "10": {"qi_cost_reduction": 0.4, "generation_boost": 1.8}
+      }
+    },
+    "cultivation": {
+      "effects": {
+        "1": {"growth_boost": 1.0, "yield_bonus": 1.0},
+        "5": {"growth_boost": 1.3, "yield_bonus": 1.2},
+        "10": {"growth_boost": 1.6, "yield_bonus": 1.5}
+      }
+    },
+    "combat": {
+      "effects": {
+        "1": {"attack_bonus": 1.0, "defense_bonus": 1.0},
+        "5": {"attack_bonus": 1.3, "defense_bonus": 1.2},
+        "10": {"attack_bonus": 1.7, "defense_bonus": 1.5}
+      }
+    },
+    "building": {
+      "effects": {
+        "1": {"build_speed": 1.0, "cost_reduction": 1.0},
+        "5": {"build_speed": 1.3, "cost_reduction": 0.9},
+        "10": {"build_speed": 1.6, "cost_reduction": 0.8}
+      }
+    },
+    "trading": {
+      "effects": {
+        "1": {"price_advantage": 1.0, "bargaining": 1.0},
+        "5": {"price_advantage": 1.2, "bargaining": 1.3},
+        "10": {"price_advantage": 1.4, "bargaining": 1.6}
+      }
+    }
+  },
+
+  "CURRENCY": {
+    "spirit_coins": {
+      "name": "عملات روحية",
+      "value": 1,
+      "description": "العملة الأساسية في العالم"
+    },
+    "ancient_coins": {
+      "name": "عملات قديمة",
+      "value": 10,
+      "description": "عملة نادرة من الحضارات القديمة"
+    }
+  },
+  
+  "RECIPES": {
+    "qi_potion_small": {
+      "name": "جرعة Qi صغيرة",
+      "ingredients": { 
+        "essence_sprite": 2, 
+        "herb_medic": 5 
+      },
+      "output": { 
+        "qi_potion_small": 1 
+      },
+      "description": "جرعة صغيرة تعيد بعض من طاقة Qi."
+    },
+    "qi_potion_medium": {
+      "name": "جرعة Qi متوسطة",
+      "ingredients": { 
+        "essence_sprite": 5, 
+        "herb_medic": 10, 
+        "qi_crystal": 1 
+      },
+      "output": { 
+        "qi_potion_medium": 1 
+      },
+      "description": "جرعة متوسطة تعيد كمية جيدة من طاقة Qi."
+    },
+    "upgrade_capacity": {
+      "name": "ترقية سعة العالم الداخلي",
+      "ingredients": { 
+        "ancient_wood": 20, 
+        "iron": 10, 
+        "qi_crystal": 5 
+      },
+      "output": { 
+        "capacity_upgrade": 1 
+      },
+      "description": "يزيد سعة العالم الداخلي بمقدار 1000 وحدة."
+    },
+    "combat_amulet": {
+      "name": "تميمة القتال",
+      "ingredients": { 
+        "gold": 5, 
+        "spirit_dust": 10, 
+        "essence_spirit_beast": 1 
+      },
+      "output": { 
+        "combat_amulet": 1 
+      },
+      "description": "تميمة تزيد من قوة الهجوم."
+    },
+    "cultivation_stone": {
+      "name": "حجر الزراعة",
+      "ingredients": { 
+        "ice_crystal": 8, 
+        "spirit_dust": 5, 
+        "essence_rabbit": 3 
+      },
+      "output": { 
+        "cultivation_stone": 1 
+      },
+      "description": "يزيد من سرعة نمو النباتات في العالم الداخلي."
+    },
+    "essence_extractor": {
+      "name": "مستخرج الجوهر",
+      "ingredients": { 
+        "iron": 15, 
+        "gold": 3, 
+        "qi_crystal": 2, 
+        "ancient_wood": 10 
+      },
+      "output": { 
+        "essence_extractor": 1 
+      },
+      "description": "يزيد من فرص الحصول على الجوهر عند الابتلاع."
+    },
+    "summon_phoenix_scroll": {
+      "name": "درع استدعاء الفينيق",
+      "ingredients": { 
+        "essence_phoenix": 1,
+        "gold": 5, 
+        "qi_crystal": 5, 
+        "spirit_dust": 25 
+      },
+      "output": { 
+        "summon_phoenix_scroll": 1 
+      },
+      "description": "يستدعي فينيقاً مساعداً لمدة محددة."
+    },
+    "teleportation_scroll": {
+      "name": "درع الانتقال",
+      "ingredients": { 
+        "qi_crystal": 3, 
+        "ancient_wood": 8, 
+        "spirit_dust": 12 
+      },
+      "output": { 
+        "teleportation_scroll": 1 
+      },
+      "description": "يتيح الانتقال إلى أي عالم مكتشف."
+    },
+    "settlement_deed": {
+      "name": "صك مستوطنة",
+      "ingredients": { 
+        "ancient_wood": 10, 
+        "gold": 3, 
+        "spirit_dust": 8 
+      },
+      "output": { 
+        "settlement_deed": 1 
+      },
+      "description": "يسمح بإنشاء مستوطنة جديدة."
+    },
+    "training_manual": {
+      "name": "كتاب تدريب",
+      "ingredients": { 
+        "herb_medic": 5, 
+        "spirit_dust": 3, 
+        "ancient_wood": 2 
+      },
+      "output": { 
+        "training_manual": 1 
+      },
+      "description": "يزيد من سرعة تعلم المهارات."
+    }
+  }
+}
